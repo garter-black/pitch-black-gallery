@@ -1,0 +1,21 @@
+/* Pitch Black Gallery lane integration: kit chassis scoping + office layout.
+   Loaded AFTER office.css on purpose: office.css sets --ink to the near-black
+   ground, so the kit containers get their own token scope here. */
+.pb-bar,.pb-all,.pb-foot{--ink:#fbf9f1;--mute:#8F8C83;--hair:#2a2925;--bg:#0a0a0a;--acc:#C8956C;font-family:Helvetica,Arial,sans-serif}
+.pb-bar{z-index:70}
+.pb-all{z-index:80}
+/* The office topbar sits under the network bar. */
+body .topbar{padding-top:68px}
+body .build-label{top:152px}
+@media (max-width:760px){body .topbar{padding-top:92px}body .build-label{top:176px}}
+/* Poster first: the loading state carries the world poster behind the word. */
+#loading{background:#0a0a0a linear-gradient(180deg,rgba(4,7,10,.55),rgba(4,7,10,.93)),url("poster.jpg") center/cover no-repeat}
+/* One controller only (Rio, 24 Sep): the shared pb-touch joystick replaces the old
+   d-pad on touch, and the legacy d-pad + its toggle are retired everywhere. */
+#touch-controls,#toggle-touch{display:none!important}
+/* Network footer lives at the foot of the Controls panel. */
+dialog .pb-foot{border-top:1px solid #2a2925;padding:26px 0 4px;margin-top:10px;font-size:10px}
+dialog .pb-foot a{color:#8F8C83}
+dialog .pb-foot a:hover{color:#fbf9f1}
+dialog .pb-foot .pb-foot__help{color:#fbf9f1;font-size:10px;letter-spacing:.1em}
+[data-sense="plain"] .pb-bar .pb-caps,[data-sense="plain"] dialog .pb-foot{text-transform:none;letter-spacing:.01em;font-size:12px}

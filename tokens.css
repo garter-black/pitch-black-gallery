@@ -1,0 +1,84 @@
+/* Pitch Black network tokens. v1.0-draft, 23 Sep 2026.
+   Set on <html>: data-arm="1..8" (or "hub"), data-register="monolith|paper|drawing|venue|witch", data-sense="full|calm|plain".
+   One accent visible at a time. No gradients (except the venue metallic text clip), no shadows, radius 0 to 2px. */
+
+:root{
+  /* ground and ink (house palette, SOUL design contract) */
+  --pb-black:#0a0a0a; --pb-bone:#FBF9F1; --pb-paper:#F2EFE8; --pb-alt-ink:#262523; --pb-alt-ground:#ECECEC;
+  --pb-mute:#8F8C83;          /* 5.9:1 on black. Smallest allowed text colour on dark. */
+  --pb-hair:#2a2925;          /* hairlines on dark */
+  --pb-hair-paper:#C9C2B4;    /* hairlines on paper */
+
+  /* arm accents: dark-ground value / paper-ground value (both checked >= 4.6:1 for text except Garter on dark, 3.8:1, marks and large type only) */
+  --a1:#C8956C; --a1p:#925F37;   /* Gallery, copper */
+  --a2:#A9BB9F; --a2p:#5C7150;   /* Codes, sage */
+  --a3:#7FA7C9; --a3p:#406F98;   /* Living, cyanotype */
+  --a4:#C9CDD2; --a4p:#636C76;   /* Shadow, platinum */
+  --a5:#9A86C2; --a5p:#785DAD;   /* Nightshade, belladonna */
+  --a6:#D8603F; --a6p:#B94526;   /* Expert, vermilion */
+  --a7:#D6B25E; --a7p:#846622;   /* Recipes, lamplight */
+  --a8:#C4394A; --a8p:#C23849;   /* Garter, crimson */
+
+  /* type: one family for the network chassis. Registers may add ONE display face (see MASTER 4.2). Never Inter. */
+  --pb-sans:"Helvetica Neue","Neue Haas Grotesk Display","Neue Haas Grotesk Text",Helvetica,Arial,sans-serif;
+  --pb-eyebrow:11px;           /* 10 to 14px range; 11 default; never below 10 */
+  --pb-eyebrow-track:.38em;    /* .32 to .50em */
+  --pb-caps-body-track:.07em;  /* .05 to .10em */
+  --pb-display:clamp(64px,10.5vw,180px);
+  --pb-display-track:-0.02em;  /* -0.03 to 0 at 100px and above */
+  --pb-body:16px; --pb-body-lh:1.65; --pb-measure:62ch;
+
+  /* space: deliberately irregular section rhythm (never the same value twice in a row) */
+  --pb-s1:48px; --pb-s2:96px; --pb-s3:128px; --pb-s4:160px; --pb-silence:40vh;
+  --pb-gutter:clamp(16px,5vw,72px);
+
+  /* motion: mass, not bounce */
+  --pb-ease:cubic-bezier(0.16,1,0.3,1);
+  --pb-reveal:1.4s; --pb-hover:.6s;
+
+  /* derived (register defaults: monolith) */
+  --bg:var(--pb-black); --ink:var(--pb-bone); --mute:var(--pb-mute); --hair:var(--pb-hair); --acc:var(--pb-bone);
+  color-scheme:dark;
+}
+
+/* arm accent binding */
+[data-arm="1"]{--acc:var(--a1)} [data-arm="2"]{--acc:var(--a2)} [data-arm="3"]{--acc:var(--a3)} [data-arm="4"]{--acc:var(--a4)}
+[data-arm="5"]{--acc:var(--a5)} [data-arm="6"]{--acc:var(--a6)} [data-arm="7"]{--acc:var(--a7)} [data-arm="8"]{--acc:var(--a8)}
+[data-arm="hub"]{--acc:var(--pb-bone)}
+
+/* registers */
+[data-register="paper"]{--bg:var(--pb-paper); --ink:#12100E; --mute:#55504A; --hair:var(--pb-hair-paper); color-scheme:light}
+[data-register="paper"][data-arm="1"]{--acc:var(--a1p)} [data-register="paper"][data-arm="2"]{--acc:var(--a2p)}
+[data-register="paper"][data-arm="3"]{--acc:var(--a3p)} [data-register="paper"][data-arm="4"]{--acc:var(--a4p)}
+[data-register="paper"][data-arm="5"]{--acc:var(--a5p)} [data-register="paper"][data-arm="6"]{--acc:var(--a6p)}
+[data-register="paper"][data-arm="7"]{--acc:var(--a7p)} [data-register="paper"][data-arm="8"]{--acc:var(--a8p)}
+[data-register="alt"]{--bg:var(--pb-alt-ground); --ink:var(--pb-alt-ink); --mute:#5A5853; --hair:#C8C8C8; color-scheme:light}
+[data-register="drawing"]{--bg:#003153; --ink:var(--pb-bone); --mute:#95BAD5; --hair:rgba(149,186,213,.35)}
+[data-register="venue"]{--bg:#060606; --ink:#C8A558; --mute:#A8884A; --hair:rgba(200,165,88,.20)}  /* venue: all gold ink, crimson <= 2% */
+/* witch: witch.codes keeps each god page's own ground; the chassis only fixes type and spacing */
+
+html{background:var(--bg); color:var(--ink)}
+body{background:var(--bg); color:var(--ink); font-family:var(--pb-sans); font-size:var(--pb-body); line-height:var(--pb-body-lh); margin:0}
+
+/* sensory dial */
+[data-sense="calm"] *, [data-sense="calm"] *::before, [data-sense="calm"] *::after{animation:none!important; transition:none!important; scroll-behavior:auto!important}
+[data-sense="plain"]{--pb-eyebrow:14px; --pb-eyebrow-track:.02em; --pb-caps-body-track:0; --pb-body:18px}
+[data-sense="plain"] .pb-caps, [data-sense="plain"] .pb-display, [data-sense="plain"] [data-caps]{text-transform:none!important; letter-spacing:.01em!important}
+[data-sense="plain"] *{font-style:normal}
+@media (prefers-reduced-motion:reduce){
+  :root:not([data-sense="full-forced"]) *{animation-duration:.001ms!important; animation-iteration-count:1!important; transition-duration:.001ms!important; scroll-behavior:auto!important}
+}
+
+/* utilities every site may use */
+.pb-caps{text-transform:uppercase; letter-spacing:var(--pb-eyebrow-track); font-size:var(--pb-eyebrow)}
+.pb-display{font-size:var(--pb-display); letter-spacing:var(--pb-display-track); line-height:.92; font-weight:500; text-transform:uppercase; text-wrap:balance; margin:0}
+.pb-measure{max-width:var(--pb-measure)}
+.pb-silence{height:var(--pb-silence)}
+.pb-link{color:inherit; text-decoration:none; background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat; transition:background-size var(--pb-hover) var(--pb-ease); padding-bottom:3px}
+.pb-link:hover,.pb-link:focus-visible{background-size:100% 1px}
+.pb-status{font-size:10px; letter-spacing:.3em; text-transform:uppercase; border:1px solid currentColor; padding:3px 7px; display:inline-block}
+.pb-placeholder{outline:1px dashed #ff3b3b; outline-offset:2px}
+:focus-visible{outline:1px solid var(--acc); outline-offset:4px}
+/* progressive reveal: content is visible unless JS has run AND motion is allowed */
+.js [data-reveal]{opacity:0; transform:translateY(18px); transition:opacity var(--pb-reveal) var(--pb-ease), transform var(--pb-reveal) var(--pb-ease)}
+.js [data-reveal].in, [data-sense="calm"] [data-reveal], [data-sense="plain"] [data-reveal]{opacity:1; transform:none}

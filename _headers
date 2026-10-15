@@ -1,0 +1,11 @@
+# HTML and JavaScript must revalidate; retain normal image/model caching.
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+/*.js
+  Cache-Control: public, max-age=0, must-revalidate
+/gallery/
+  Cache-Control: public, max-age=0, must-revalidate
+/profile/
+  Cache-Control: public, max-age=0, must-revalidate

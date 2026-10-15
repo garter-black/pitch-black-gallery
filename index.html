@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en-AU" data-arm="1" data-register="monolith" data-sense="full">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <!-- This deployment is static Pages: there is no /api/session endpoint (an /api/* request
+       here returns a 200 HTML fallback). Keep the session fetch off until this world is
+       deliberately redeployed behind a worker that serves /api/session; flip to "on" then. -->
+  <meta name="pb-session-api" content="off">
+  <meta name="description" content="Pitch Black Gallery: the canonical virtual office of the Pitch Black network. Twenty god domains, the company collection, and an original virtual world in construction. The Black Garter venue is across the street.">
+  <meta property="og:title" content="Pitch Black Gallery / The Virtual Office">
+  <meta property="og:description" content="Twenty gods. Twenty domains. One immense shared world. The collection of neurodivergent companies.">
+  <meta property="og:image" content="https://pitch.black.gallery/poster.jpg">
+  <meta property="og:url" content="https://pitch.black.gallery/">
+  <title>Pitch Black Gallery / Virtual Office</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0a'/%3E%3Crect x='8' y='8' width='16' height='16' fill='none' stroke='%23C8956C' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="canonical" href="https://pitch.black.gallery/">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="pb-kit.css">
+  <link rel="stylesheet" href="office.css">
+  <link rel="stylesheet" href="pb-gallery.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three.module.min.js","/world-data.js":"/world-data.js?v=sorceress-20260928-r2","/characters/character-runtime.js":"/characters/character-runtime.js?v=sorceress-20260928-r2","/characters/hecate-original-avatar.js":"/characters/hecate-original-avatar.js?v=sorceress-20260928-r2","/characters/original-characters.js":"/characters/original-characters.js?v=sorceress-20260928-r2"}}</script>
+  <!-- Boot graph started at parse time instead of discovered module-by-module (saves the
+       import waterfall on cold visits): the two three.js halves plus every direct import
+       of office.js. Settings are preloaded the moment the HTML is parsed.
+       hrefs are ROOT-ABSOLUTE on purpose: Cloudflare Pages echoes these exact strings in a
+       Link: rel=modulepreload response header on HTML responses. Relative hrefs in that
+       header resolve against whatever URL was fetched, so a stray fetch under a subpath
+       (or a 200 fallback for an unknown path) re-resolves the list under that prefix and
+       recurses without bound. Absolute hrefs cannot be re-based. Do not "tidy" these back
+       to relative paths. -->
+  <link rel="modulepreload" href="/vendor/three.core.min.js">
+  <link rel="modulepreload" href="/vendor/three.module.min.js">
+  <link rel="modulepreload" href="/world-data.js?v=sorceress-20260928-r2">
+  <link rel="modulepreload" href="/movement.js">
+  <link rel="modulepreload" href="/frame-timing.js">
+  <link rel="modulepreload" href="/architecture.js">
+  <link rel="modulepreload" href="/architecture-materials.js">
+  <link rel="modulepreload" href="/characters/character-runtime.js?v=sorceress-20260928-r2">
+  <link rel="modulepreload" href="/player-avatar.js">
+  <link rel="modulepreload" href="/view-controls.js">
+  <link rel="preload" as="fetch" href="/settings.json" crossorigin="anonymous">
+  <script src="settings-loader.js" defer></script>
+  <script src="pb-touch.js" defer></script>
+  <script src="pb-kit.js" defer></script>
+  <script type="module" src="/office.js?v=sorceress-20260928-r2"></script>
+  <script type="module" src="spatius-talk.js"></script>
+</head>
+<body>
+<header class="pb-bar" data-pb-bar>
+  <a class="pb-bar__hub" data-pb-net href="https://pitch.black.industries/"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x=".5" y=".5" width="15" height="15" fill="none" stroke="currentColor"/><rect x="4.5" y="4.5" width="7" height="7" fill="none" stroke="currentColor"/><path d="M.5 .5L4.5 4.5M15.5 .5L11.5 4.5M.5 15.5L4.5 11.5M15.5 15.5L11.5 11.5" stroke="currentColor"/></svg><span class="pb-caps">Pitch Black Industries</span></a>
+  <span class="pb-bar__here pb-caps">01 · Pitch Black Gallery</span>
+  <nav class="pb-bar__net" aria-label="Network"><a class="pb-caps" data-pb-net href="https://garter.black/" rel="prev">08 Garter · 18+</a><a class="pb-caps" data-pb-net href="https://witch.codes/" rel="next">02 Codes</a><a class="pb-caps" data-pb-net href="https://sky.shadow.black/">Mirror · 05 Nightshade</a><button class="pb-caps" type="button" data-pb-all aria-expanded="false" aria-controls="pb-all" data-pb-keep>All eight</button></nav>
+  <div class="pb-dial" role="group" aria-label="Sensory setting"><button class="pb-caps" type="button" data-pb-sense="full" aria-pressed="true">Full</button><button class="pb-caps" type="button" data-pb-sense="calm" aria-pressed="false">Calm</button><button class="pb-caps" type="button" data-pb-sense="plain" aria-pressed="false">Plain</button></div>
+</header>
+<div id="pb-all" class="pb-all" hidden role="dialog" aria-label="The eight arms">
+  <button class="pb-all__close" type="button" data-pb-close>Close</button>
+  <div class="pb-all__wheel"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width=".18" opacity=".55"><line x1="12.44" y1="65.56" x2="34.44" y2="87.56"/><line x1="12.44" y1="65.56" x2="43.56" y2="65.56"/><line x1="12.44" y1="65.56" x2="34.44" y2="43.56"/><line x1="12.44" y1="65.56" x2="12.44" y2="34.44"/><line x1="34.44" y1="87.56" x2="65.56" y2="87.56"/><line x1="34.44" y1="87.56" x2="56.44" y2="65.56"/><line x1="34.44" y1="87.56" x2="34.44" y2="56.44"/><line x1="43.56" y1="65.56" x2="65.56" y2="87.56"/><line x1="43.56" y1="65.56" x2="65.56" y2="43.56"/><line x1="43.56" y1="65.56" x2="43.56" y2="34.44"/><line x1="65.56" y1="87.56" x2="87.56" y2="65.56"/><line x1="65.56" y1="87.56" x2="65.56" y2="56.44"/><line x1="34.44" y1="43.56" x2="56.44" y2="65.56"/><line x1="34.44" y1="43.56" x2="65.56" y2="43.56"/><line x1="34.44" y1="43.56" x2="34.44" y2="12.44"/><line x1="56.44" y1="65.56" x2="87.56" y2="65.56"/><line x1="56.44" y1="65.56" x2="56.44" y2="34.44"/><line x1="65.56" y1="43.56" x2="87.56" y2="65.56"/><line x1="65.56" y1="43.56" x2="65.56" y2="12.44"/><line x1="87.56" y1="65.56" x2="87.56" y2="34.44"/><line x1="12.44" y1="34.44" x2="34.44" y2="56.44"/><line x1="12.44" y1="34.44" x2="43.56" y2="34.44"/><line x1="12.44" y1="34.44" x2="34.44" y2="12.44"/><line x1="34.44" y1="56.44" x2="65.56" y2="56.44"/><line x1="34.44" y1="56.44" x2="56.44" y2="34.44"/><line x1="43.56" y1="34.44" x2="65.56" y2="56.44"/><line x1="43.56" y1="34.44" x2="65.56" y2="12.44"/><line x1="65.56" y1="56.44" x2="87.56" y2="34.44"/><line x1="34.44" y1="12.44" x2="56.44" y2="34.44"/><line x1="34.44" y1="12.44" x2="65.56" y2="12.44"/><line x1="56.44" y1="34.44" x2="87.56" y2="34.44"/><line x1="65.56" y1="12.44" x2="87.56" y2="34.44"/></g><circle cx="50" cy="50" r=".9" fill="currentColor"/></svg><a class="pb-all__hub" data-pb-net href="https://pitch.black.industries/" style="left:50%;top:57%">Hub</a><a data-pb-net href="https://pitch.black.gallery/" style="left:50.0%;top:3.0%" aria-current="page">01 Gallery</a><a data-pb-net href="https://witch.codes/" style="left:83.2%;top:16.8%">02 Codes</a><a data-pb-net href="https://witchcraft.living/" style="left:97.0%;top:50.0%">03 Living</a><a data-pb-net href="https://shadow.black/" style="left:83.2%;top:83.2%">04 Shadow</a><a data-pb-net href="https://sky.shadow.black/" style="left:50.0%;top:97.0%">05 Nightshade</a><a data-pb-net href="https://witchcraft.expert/" style="left:16.8%;top:83.2%">06 Expert</a><a data-pb-net href="https://witchcraft.recipes/" style="left:3.0%;top:50.0%">07 Recipes</a><a data-pb-net href="https://garter.black/" style="left:16.8%;top:16.8%">08 Garter · 18+</a></div>
+</div>
+  <main id="world" data-dim="3" data-dim-label="The office world (WebGL)" data-poster="poster.jpg" aria-label="Black Garter virtual office">
+    <canvas id="scene" tabindex="0" aria-label="Playable virtual office. WASD to walk, drag to look, space to jump, Q to dash, V to switch camera view, C to swap shoulders. Use Directory to visit any domain."></canvas>
+    <div id="loading" role="status">ASSEMBLING THE PANTHEON<span>Twenty rooms. One shared world.</span></div>
+    <header class="topbar">
+      <a class="wordmark" href="./">PITCH BLACK GALLERY<span>THE VIRTUAL OFFICE</span></a>
+      <div class="top-actions"><button id="directory-open">DIRECTORY <span>20</span></button><a class="study-link" href="gallery/">GALLERY DIRECTORY ↗</a><a class="study-link" href="profile/">THE PROFILE ↗</a><a class="study-link" href="https://black.garter.app/" target="_blank" rel="noopener">CROSS THE STREET ↗</a><button id="settings-open" aria-label="Open controls and build information">CONTROLS</button></div>
+    </header>
+    <div class="build-label">THE PANTHEON <span id="session-label">VISITOR / EXPLORE FREELY</span><span id="presence-label">CONNECTING TO THE HALL</span></div>
+    <section id="welcome" class="welcome" aria-labelledby="welcome-title">
+      <p class="eyebrow">PITCH.BLACK.GALLERY / A WORLD WITHIN</p>
+      <h1 id="welcome-title">THE<br>PANTHEON.</h1>
+      <p class="welcome-copy">An immense shared hall. Twenty domains. The collection of neurodivergent companies.<br>Choose a door. See what lies beyond.</p>
+      <button id="enter" class="enter" disabled>ENTER THE OFFICE <span>↗</span></button>
+      <p class="entry-note">WASD to move · X to walk / jog · Shift to run · V to switch view</p>
+      <label class="arrival-audio"><input id="arrival-audio" type="checkbox" checked> ARRIVE WITH MUSIC <span>Detonate / Pitch Black</span></label>
+    </section>
+    <div id="crosshair" aria-hidden="true" hidden>+</div>
+    <section id="location" class="location" aria-live="polite" hidden><p class="eyebrow" id="floor-label">GROUND / SHARED HUB</p><h2 id="location-title">THE ATRIUM</h2><p id="location-copy">Concrete. Glass. Silver. Twenty worlds beyond.</p></section>
+    <div id="interaction" class="interaction" hidden><button id="interact-button">E / OPEN LIFT</button></div>
+    <div id="movement-status" class="movement-status" hidden><span id="jump-status">JUMP · 3 READY</span><span id="dash-status">DASH · READY</span></div>
+    <div id="owner-abilities" class="owner-abilities" hidden><button data-ability="blink">B / BLINK</button><button data-ability="grapple">G / GRAPPLE</button><button data-ability="vault">F / VAULT</button><span>HOLD SPACE / GLIDE · SHIFT NEAR WALL / RUN</span></div>
+    <button id="profile-open" class="profile-open" hidden>MEET THE GOD ↗</button>
+    <div class="atlas-progress" id="atlas-progress" hidden><span id="visited-count">0 / 20 DOMAINS</span><svg id="minimap" viewBox="0 0 106 106" aria-label="Map of public domain locations" role="img"></svg></div>
+    <div id="camera-quick-controls" class="camera-quick-controls" aria-label="Camera controls" hidden><button id="view-quick" aria-label="Switch camera view" disabled>VIEW</button><button id="shoulder-quick" aria-label="Swap camera shoulder" disabled>SHOULDER → L</button></div>
+    <div class="musicbar"><button id="music-toggle" aria-label="Play spawn jukebox">▶</button><div><span class="eyebrow">SPAWN JUKEBOX</span><p id="track-name">DETONATE / PITCH BLACK</p><small id="music-status">Press play to start the room’s soundtrack.</small></div><button id="music-next" aria-label="Next hype track">↗</button><label class="volume"><span>VOL</span><input id="volume" aria-label="Music volume" type="range" min="0" max="100" value="38"></label></div>
+    <div id="touch-controls" class="touch-controls" hidden>
+      <div class="direction-pad" aria-label="Movement controls"><button data-hold="forward" aria-label="Walk forward">↑</button><button data-hold="left" aria-label="Walk left">←</button><button data-hold="back" aria-label="Walk backward">↓</button><button data-hold="right" aria-label="Walk right">→</button></div>
+      <div class="action-pad"><button id="jump-button">JUMP <span>×3</span></button><button id="dash-button">DASH</button></div>
+    </div>
+    <p id="toast" class="toast" role="status" hidden></p>
+    <p class="visitor-label" id="visitor-status">PUBLIC EXPLORATION · GOD PROFILES ARE VIEW ONLY</p>
+    <button id="private-return" class="private-return" hidden>RETURN TO THE HALL ↗</button>
+  </main>
+  <dialog id="directory" aria-labelledby="directory-title">
+    <div class="dialog-head"><div><p class="eyebrow">THE PANTHEON</p><h2 id="directory-title">TWENTY DOMAINS</h2></div><button data-close="directory" aria-label="Close directory">×</button></div>
+    <div class="destinations"><button data-destination="spawn">SPAWN / ATRIUM</button><button data-destination="upper">UPPER GALLERY</button><button data-destination="crown">CROWN OFFICE VIEW</button><button id="building-route">THE BLACK GARTER / CROSS THE STREET ↗</button><button id="gallery-directory-button">GALLERY DIRECTORY / EVERY COMPANY ↗</button></div>
+    <p class="dialog-note">Choose a destination to travel there. The Black Garter is across the street: the lit doorway by the atrium crosses to black.garter.app. The gallery directory lists every company, paper and link in the collection.</p>
+    <div id="room-list" class="room-list"></div>
+    <div id="private-destinations" class="destinations" hidden></div>
+    <p class="dialog-note">Every domain has a different character. Visitors explore and view profiles; agent commands stay in the private Command Center.</p>
+  </dialog>
+  <dialog id="settings" aria-labelledby="settings-title">
+    <div class="dialog-head"><div><p class="eyebrow">EXPLORE THE OFFICE</p><h2 id="settings-title">MOVEMENT & BUILD</h2></div><button data-close="settings" aria-label="Close controls">×</button></div>
+    <dl class="control-list"><div><dt>W A S D</dt><dd>Move / strafe</dd></div><div><dt>X</dt><dd>Switch between walking and jogging pace</dd></div><div><dt>DRAG</dt><dd>Look around · arrow keys also turn</dd></div><div><dt>SPACE</dt><dd>Jump up to three times before landing</dd></div><div><dt>SHIFT / Q</dt><dd>Run / dash</dd></div><div><dt>E</dt><dd>Interact with the lift or jukebox</dd></div><div><dt>R</dt><dd>Return to spawn</dd></div><div><dt>ESC</dt><dd>Release the mouse / close a panel</dd></div></dl>
+    <div class="setting-actions"><button id="lock-mouse">LOCK MOUSE TO LOOK</button><button id="toggle-touch">HIDE TOUCH CONTROLS</button><button id="pace-toggle" aria-pressed="false">X / JOGGING PACE</button><button id="view-toggle" disabled>FULL BODY VIEW LOADING</button><button id="shoulder-toggle" disabled>C / SWAP TO LEFT</button></div>
+    <p id="camera-state" class="dialog-note" role="status">Your character is arriving. V switches between full body and first person.</p>
+    <div class="setting-actions"><a class="owner-login" href="/owner">OWNER SIGN IN ↗</a><button id="motion-toggle">CAMERA EFFECTS ON</button></div>
+    <label class="setting-label">RENDER QUALITY <select id="quality"><option value="1">BALANCED</option><option value="1.5" selected>HIGH</option></select></label>
+    <p class="build-note">Take the lift to the upper gallery or crown overlook. Visit every domain, meet its god, and let the spawn jukebox keep playing while you explore.</p>
+    <p class="build-note">Owner traversal adds blink, grapple, vault, glide and wall running. These powers and private destinations appear after owner sign-in.</p>
+    <p class="build-note">On touch screens, hold DASH to sprint while moving. Owners can hold JUMP in the air to glide, or sprint alongside a wall to run along it.</p>
+    <p id="render-state" class="dialog-note">Renderer starting…</p>
+    <p id="character-state" class="dialog-note" role="status">Character models are arriving.</p>
+    <p id="hecate-character-credit" class="dialog-note">Hecate: <a href="https://sketchfab.com/3d-models/dark-fantasy-sorceress-crystal-staff-a307ea3800d748c487d26235bb43ecc0" target="_blank" rel="noopener">Sorceress by Pigcraft</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. Scaled to fit; Meshopt derivative with original 4K maps preserved.</p>
+    <footer class="pb-foot">
+      <div>Pitch Black Gallery · Sydney, Australia</div>
+      <div class="pb-foot__net"><a data-pb-net href="https://pitch.black.industries/">Pitch Black Industries</a><a data-pb-net href="https://pitch.black.industries/catalogue/">The Catalogue</a><a data-pb-net href="https://garter.black/">08 Garter · 18+</a><a data-pb-net href="https://witch.codes/">02 Codes</a></div>
+      <div class="pb-foot__help">If this is close to home: Lifeline 13 11 14 · Suicide Call Back Service 1300 659 467 · both 24 hours</div>
+      <div>Belonging, through open doors.</div>
+    </footer>
+  </dialog>
+  <dialog id="lift" aria-labelledby="lift-title"><div class="dialog-head"><div><p class="eyebrow">ATRIUM LIFT</p><h2 id="lift-title">CHOOSE A LEVEL</h2></div><button data-close="lift" aria-label="Close lift">×</button></div><div class="lift-levels"><button data-destination="spawn">00 <span>GROUND ATRIUM</span></button><button data-destination="upper">01 <span>UPPER GALLERY</span></button><button data-destination="crown">02 <span>CROWN OFFICE VIEW</span></button></div></dialog>
+  <dialog id="god-profile" aria-labelledby="profile-title"><div class="dialog-head"><div><p class="eyebrow" id="profile-domain"></p><h2 id="profile-title"></h2></div><button data-close="god-profile" aria-label="Close god profile">×</button></div><div class="profile-layout"><img id="profile-art" class="profile-art" width="1254" height="1254" alt=""><div><p id="profile-role" class="eyebrow"></p><p id="profile-description" class="profile-description"></p><p class="eyebrow">SIGNATURE</p><p id="profile-power" class="profile-power"></p><p class="dialog-note">Public profile. Orders and business conversations stay in the private Command Center.</p></div></div><p id="profile-art-note" class="dialog-note"></p></dialog>
+  <audio id="music" preload="none"></audio>
+</body>
+</html>

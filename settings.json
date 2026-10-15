@@ -1,0 +1,256 @@
+{
+ "main_character": {
+  "id": "hecate",
+  "playable": true
+ },
+ "npc.roster": [
+  {
+   "id": "athena",
+   "name": "Athena",
+   "role": "DNA and whole-genome analysis",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-16",
+   "spatius_avatar_id": "9a83a656-1b78-4116-ae69-8c6fc2bd8dd3"
+  },
+  {
+   "id": "hera",
+   "name": "Hera",
+   "role": "front desk and reception",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-15",
+   "spatius_avatar_id": "0c9d734b-8e89-46fb-bbd2-19f09f21f512"
+  },
+  {
+   "id": "hecate",
+   "name": "Hecate",
+   "role": "orchestrator, guide, main character",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-01",
+   "spatius_avatar_id": "e6389d18-dd27-4d5a-a5da-6eb0d315af84"
+  },
+  {
+   "id": "hedone",
+   "name": "Hedone",
+   "role": "companion-robot showroom (SFW)",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-02",
+   "spatius_avatar_id": "d06ef86d-4499-497f-b108-d9084926b9a4"
+  },
+  {
+   "id": "artemis",
+   "name": "Artemis",
+   "role": "sales and revenue",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-08",
+   "spatius_avatar_id": "1924fe49-18f3-422e-8423-cf892cac8554"
+  },
+  {
+   "id": "aphrodite",
+   "name": "Aphrodite",
+   "role": "companionship and care for older people",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-03",
+   "spatius_avatar_id": "9110e233-5d05-400b-98dc-b9c6285cebc9"
+  },
+  {
+   "id": "nyx",
+   "name": "Nyx",
+   "role": "music, art, design",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-06",
+   "spatius_avatar_id": "de3d84e0-5e26-4e3a-81af-8dd72851f756"
+  },
+  {
+   "id": "hestia",
+   "name": "Hestia",
+   "role": "home and property research",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-07",
+   "spatius_avatar_id": "55bc2fb4-a609-4ebf-8ad6-e8be5e054b4b"
+  },
+  {
+   "id": "theia",
+   "name": "Theia",
+   "role": "radiology, Titan of Light",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-17",
+   "spatius_avatar_id": "8212fe86-cc40-4b71-acfa-671f27582a6c"
+  },
+  {
+   "id": "persephone",
+   "name": "Persephone",
+   "role": "business and corporate strategy",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-18",
+   "spatius_avatar_id": "011b0f18-a755-4854-abe7-9e354b7b168c"
+  },
+  {
+   "id": "euterpe",
+   "name": "Euterpe",
+   "role": "video",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-22",
+   "spatius_avatar_id": "db1a9d96-1fc5-424b-a97f-8ad69f0480e6"
+  },
+  {
+   "id": "erato",
+   "name": "Erato",
+   "role": "pictures",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-19",
+   "spatius_avatar_id": "b03c2f7c-68d1-4b52-ad02-98a8ba086c11"
+  },
+  {
+   "id": "cassandra",
+   "name": "Cassandra",
+   "role": "hospitality",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-09",
+   "spatius_avatar_id": "fdaa9105-6d23-4456-a05b-980919813f50"
+  },
+  {
+   "id": "circe",
+   "name": "Circe",
+   "role": "websites and deployment",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-05",
+   "spatius_avatar_id": "eb3ba29a-afad-4d77-bae2-68f48028dd5b"
+  },
+  {
+   "id": "selene",
+   "name": "Selene",
+   "role": "secretary and executive assistant",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-20",
+   "spatius_avatar_id": "794da53c-8628-4c73-80a7-0addf0d37c8e"
+  },
+  {
+   "id": "demeter",
+   "name": "Demeter",
+   "role": "infrastructure and efficiency",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-14",
+   "spatius_avatar_id": "c377f764-65b9-417f-8b2b-2c211217c080"
+  },
+  {
+   "id": "medea",
+   "name": "Medea",
+   "role": "maintenance and tooling",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-03",
+   "spatius_avatar_id": "9110e233-5d05-400b-98dc-b9c6285cebc9"
+  },
+  {
+   "id": "peitho",
+   "name": "Peitho",
+   "role": "legal research",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-17",
+   "spatius_avatar_id": "8212fe86-cc40-4b71-acfa-671f27582a6c"
+  },
+  {
+   "id": "styx",
+   "name": "Styx",
+   "role": "security",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-09",
+   "spatius_avatar_id": "fdaa9105-6d23-4456-a05b-980919813f50"
+  },
+  {
+   "id": "eos",
+   "name": "Eos",
+   "role": "research and development",
+   "enabled": true,
+   "license": null,
+   "model_glb": null,
+   "spatius_slug": "sp-15",
+   "spatius_avatar_id": "0c9d734b-8e89-46fb-bbd2-19f09f21f512"
+  }
+ ],
+ "render": {
+  "target": "photoreal",
+  "content": "SFW public site: attractive, fashionable, fully clothed; no nudity",
+  "ip_rule": "original designs only: never reproduce Eve, 2B or any franchise character, asset, logo or likeness of a real celebrity",
+  "asset_licenses": "CC0 or CC-BY with credits recorded in licenses.json",
+  "art_direction_bar": "Stellar Blade / NieR:Automata level of character and lighting quality"
+ },
+ "site.identity": {
+  "role": "canonical Pitch Black virtual office + gallery directory",
+  "domain": "pitch.black.gallery",
+  "before_replace": "move current live site to old.pitch.black.gallery"
+ },
+ "site.scope": {
+  "exclude": [
+   "the Black Garter building (lives only on black.garter.app)"
+  ],
+  "links_out": {
+   "black.garter.app": "door/portal to the venue"
+  },
+  "merge_from": [
+   "current black.garter.app virtual office (release-20260913-38)",
+   "black.gallery directory map + all content (72 links, 31 imgs, 8 sections)",
+   "current pitch.black.gallery content"
+  ]
+ },
+ "spatius": {
+  "proxy": "https://umbra-spatius.zwt26420.workers.dev",
+  "scope": "20 gods conversational avatars",
+  "app_id": "app_mu026pw9_19f5hnt",
+  "region": "us-west",
+  "enabled": true,
+  "key_env": "SPATIUS_API_KEY",
+  "verified": {
+   "by": "umbra-gallery-turn2",
+   "mint_through_proxy": "2026-09-24 03:5x AEST, http 200, single-use token"
+  },
+  "face_note": "god in-world portraits use the matching public-library face; character ids live in npc.roster[].spatius_avatar_id",
+  "app_id_env": "SPATIUS_APP_ID",
+  "avatar_ids": {
+   "hecate_i": "c3eae752-d7d3-4109-899a-60ac335b7548",
+   "hecate_ii": "d51ab422-3db7-47cc-afa8-7273b02bc70b"
+  },
+  "secret_rule": "Worker secret only, never shipped to the browser",
+  "mint_endpoint": "POST <proxy>/session (expireAt only; appId in body breaks it)",
+  "library_source": "https://www.spatius.ai/api/playground/v1/demos (24 public characters; manifest captured 2026-09-23)",
+  "credential_note": "profiles/hecate/.env has a DUPLICATE SPATIUS_API_KEY line; the earlier line is stale/invalid, the later line (line ~936) is live (verified 2026-09-24). Use dotenv last-wins or reconcile."
+ },
+ "_exported_from": "postgres cortex worlds.site_settings"
+}
